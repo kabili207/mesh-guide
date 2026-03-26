@@ -1,0 +1,22 @@
+site_name: Mesh Guide
+
+theme:
+  name: kpn
+
+extra_css:
+  - css/custom.css
+
+markdown_extensions:
+  - markdown_include.include:
+      base_path: docs
+  - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.tabbed:
+  - codehilite:
+
+nav:
+  - Home: index.md
+  - Reticulum: reticulum.md
+  - RNode Setup: rnode.md
+  - LoRa Settings Comparison: lora-comparison.md
+
