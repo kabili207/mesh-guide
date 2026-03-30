@@ -6,13 +6,18 @@ theme:
 extra_css:
   - css/custom.css
 
+extra_javascript:
+  - js/hljs-no-guess.js
+
 markdown_extensions:
   - markdown_include.include:
       base_path: docs
+  - pymdownx.highlight:
+      guess_lang: false
+      pygments_lang_class: true
   - pymdownx.superfences
   - pymdownx.keys
-  - pymdownx.tabbed:
-  - codehilite:
+  - pymdownx.tabbed
 
 nav:
   - Home: index.md

@@ -22,7 +22,7 @@ than giving it its own. This is required so that NomadNet can access the Reticul
 
 Run the `rnsd` command once and wait for it to say it's started, then hit `Ctrl+C`
 
-```
+```text
 user@laptop:~$ rnsd
 [2026-03-17 14:48:00] [Notice]   Could not load config file, creating default configuration file...
 [2026-03-17 14:48:00] [Notice]   Default config file created. Make any necessary changes in /home/user/.reticulum/config and restart Reticulum if needed.
