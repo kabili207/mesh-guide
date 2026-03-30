@@ -8,7 +8,7 @@
     The page_title contains the title for a page as shown in the navigation.
     Site name contains the name as defined in the mkdocs.yml
   -->
-  <title>Home - Mesh Guide</title>
+  <title>Companion Software - Mesh Guide</title>
 
   <!-- Page description -->
   
@@ -21,12 +21,12 @@
   <!--
     Just add a favicon.ico image to the docs.
   -->
-  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="shortcut icon" href="../img/favicon.ico">
 
-  <link rel="stylesheet" href="css/colors.css">
-  <link rel="stylesheet" href="css/bundle.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <link media="print" onload="this.media='all'" rel="stylesheet" href="css/atom-dark-one.min.css">
+  <link rel="stylesheet" href="../css/colors.css">
+  <link rel="stylesheet" href="../css/bundle.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link media="print" onload="this.media='all'" rel="stylesheet" href="../css/atom-dark-one.min.css">
   <!--
     extra_ess contains paths to CSS files in the users
     documentation directory or a list of CSS files defined in
@@ -35,7 +35,7 @@
     http://www.mkdocs.org/user-guide/configuration/#extra_css
   -->
   
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
   
 
   
@@ -55,14 +55,14 @@
 <!--
   The JS has to be loaded here for maximum performance, right after the #dark-mode
 -->
-<script src="js/theme.js"></script>
+<script src="../js/theme.js"></script>
 <div class="app-body">
   <!-- KPN STYLE Beginning -->
   <div class="app-layout ">
     <!-- Top Bar -->
     <nav class="app-layout__top-bar top-bar">
       <a class="top-bar__logo">
-        <img alt="KPN Logo" src="img/logo-kpn.svg" />
+        <img alt="KPN Logo" src="../img/logo-kpn.svg" />
       </a>
       <div class="top-bar__title">Mesh Guide</div>
       <ul class="top-bar__menu">
@@ -75,7 +75,7 @@
           <li class="top-bar__item">
 
             <span role="search" id="search-input-wrapper">
-              <form action="search.html" method="get">
+              <form action="../search.html" method="get">
                 <input type="text" class="input" id="search-input" name="q" placeholder="Search..." />
               </form>
             </span >
@@ -94,7 +94,7 @@
         <li class="top-bar__item">
             <label class="top-bar__link" id="label-dark-mode" for="dark-mode" title="Dark mode">
               <svg alt="dark mode" width="24" height="24">
-                <image xlink:href="img/ui-bulb.svg" width="24" height="24"/>
+                <image xlink:href="../img/ui-bulb.svg" width="24" height="24"/>
             </svg>
             </label>
         </li>
@@ -138,7 +138,7 @@
 -->
 
 <li>
-  <a href="." class="side-bar__link side-bar__link--active">
+  <a href=".." class="side-bar__link ">
     Home
   </a>
 </li>
@@ -149,7 +149,7 @@
 -->
 
 <li>
-  <a href="reticulum/" class="side-bar__link ">
+  <a href="../reticulum/" class="side-bar__link ">
     Reticulum
   </a>
 </li>
@@ -160,7 +160,7 @@
 -->
 
 <li>
-  <a href="rnode/" class="side-bar__link ">
+  <a href="../rnode/" class="side-bar__link ">
     RNode Setup
   </a>
 </li>
@@ -171,7 +171,7 @@
 -->
 
 <li>
-  <a href="companion-software/" class="side-bar__link ">
+  <a href="./" class="side-bar__link side-bar__link--active">
     Companion Software
   </a>
 </li>
@@ -182,7 +182,7 @@
 -->
 
 <li>
-  <a href="interface-modes/" class="side-bar__link ">
+  <a href="../interface-modes/" class="side-bar__link ">
     Interface Modes
   </a>
 </li>
@@ -193,7 +193,7 @@
 -->
 
 <li>
-  <a href="lora-comparison/" class="side-bar__link ">
+  <a href="../lora-comparison/" class="side-bar__link ">
     LoRa Settings Comparison
   </a>
 </li>
@@ -205,7 +205,7 @@
     <!-- MAIN BLOCK -->
     <main class="app-layout__main main">
       <div class="app-layout__title-bar title-bar">
-        <div class="title-bar__title">Home</div>
+        <div class="title-bar__title">Companion Software</div>
       </div>
       
       <div class="sidebar--secondary hidden-s hidden-xs">
@@ -214,7 +214,22 @@
         
           
             
-                <li><a class="a" href="#whats-covered">What's Covered</a></li>
+                <li><a class="a" href="#sideband">Sideband</a></li>
+                
+            
+                <li><a class="a" href="#meshchatx">MeshChatX</a></li>
+                
+            
+                <li><a class="a" href="#meshchat">MeshChat</a></li>
+                
+            
+                <li><a class="a" href="#columba">Columba</a></li>
+                
+            
+                <li><a class="a" href="#pyxis">Pyxis</a></li>
+                
+            
+                <li><a class="a" href="#nomad-network">Nomad Network</a></li>
                 
             
           
@@ -228,15 +243,43 @@
             <div class="card__body">
 
               
-              <h1 id="mesh-guide">Mesh Guide</h1>
-<p>A practical guide for setting up <a href="https://reticulum.network/">Reticulum</a>, a cryptography-based
-networking stack for building mesh networks.</p>
-<h2 id="whats-covered">What's Covered</h2>
-<ul>
-<li><a href="reticulum/">Reticulum</a>: Installing, configuring, and connecting</li>
-<li><a href="rnode/">RNode</a>: Setting up radio hardware for off-grid networking</li>
-<li><a href="lora-comparison/">LoRa Settings Comparison</a>: How Meshtastic, MeshCore, and Reticulum radio settings compare</li>
-</ul>
+              <h1 id="companion-software">Companion Software</h1>
+<p>There's a growing assortment of software for communicating over the Reticulum network.
+Below is a curated list of what I've personally used. My recommendation for desktop use
+is MeshChatX and Columba on Android, but you're encouraged to try a few and see what fits.</p>
+<h2 id="sideband">Sideband</h2>
+<p><strong>Platforms:</strong> Android, Linux, macOS, Windows</p>
+<p>The most full-featured option. Supports voice messaging, real-time calls, file attachments,
+telemetry sharing, and a plugin system. Good choice if you want everything in one app.</p>
+<p><a href="https://unsigned.io/sideband">Home page</a></p>
+<h2 id="meshchatx">MeshChatX</h2>
+<p><strong>Platforms:</strong> Linux, macOS, Windows</p>
+<p>A fork of MeshChat with voice calls, multi-identity handling, phonebook, contact sharing,
+page archiving, integrated maps, and a more polished UI. Actively developed.</p>
+<p><a href="https://meshchatx.com/">Home page</a> |
+<a href="https://git.quad4.io/RNS-Things/MeshChatX">Source code</a></p>
+<h2 id="meshchat">MeshChat</h2>
+<p><strong>Platforms:</strong> Linux, macOS, Windows</p>
+<p>The original web-based client. Clean interface with a built-in NomadNet page browser,
+image/file/voice support, and an optional local propagation node.</p>
+<p><a href="https://github.com/liamcottle/reticulum-meshchat">Source code</a></p>
+<h2 id="columba">Columba</h2>
+<p><strong>Platforms:</strong> Android</p>
+<p>A native Android client using Material Design. Still early in development but actively
+maintained, and compatible with all other clients.</p>
+<p><a href="https://github.com/torlando-tech/columba">Source code</a></p>
+<h2 id="pyxis">Pyxis</h2>
+<p><strong>Platforms:</strong> T-Deck Plus</p>
+<p>An early project for a self-contained Reticulum node on the T-Deck, made by the same
+person behind Columba. A bit slow at times, but the interface is clean. BLE transport is
+buggy, though WiFi and LoRa work well. Audio calls are supported but the quality is low.</p>
+<p><a href="https://github.com/torlando-tech/pyxis">Source code</a></p>
+<h2 id="nomad-network">Nomad Network</h2>
+<p><strong>Platforms:</strong> Linux, macOS, Windows (terminal)</p>
+<p>The original terminal-based client. Encrypted messaging, file sharing, and a built-in page
+server for hosting NomadNet content. This is the reference implementation for the NomadNet
+page ecosystem.</p>
+<p><a href="https://github.com/markqvist/nomadnet">Source code</a></p>
               
             </div>
           </div>
@@ -253,13 +296,17 @@ networking stack for building mesh networks.</p>
           </div>
           <div class="col col--s-4 col--m space-between">
             
-              &#8592; Previous Page
+              <a class="footer__link padding-top-0 navigation-prev"
+                href="../rnode/"
+                title="RNode Setup">
+                &#8592; Previous Page
+              </a>
             
             
             
               <a class="footer__link padding-top-0 navigation-next"
-                href="reticulum/"
-                title="Reticulum"/>
+                href="../interface-modes/"
+                title="Interface Modes"/>
                 Next Page &#8594;
               </a>
             
@@ -275,23 +322,23 @@ networking stack for building mesh networks.</p>
 
   <!--
   MkDocs version      : 1.6.1
-  Docs Build Date UTC : 2026-03-30 17:35:39.688877+00:00
+  Docs Build Date UTC : 2026-03-30 17:35:39.690326+00:00
   -->
 
   <!--
     To include static assets from our theme, just add
-    . beforehand which will be the relative path to
+    .. beforehand which will be the relative path to
     the root of the documentation.
   -->
-  <script src="js/highlight.min.js"></script>
-  <script src="js/languages/groovy.min.js"></script>
-  <script src="js/languages/asciidoc.min.js"></script>
-  <script src="js/languages/nix.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/groovy.min.js"></script>
+  <script src="../js/languages/asciidoc.min.js"></script>
+  <script src="../js/languages/nix.min.js"></script>
 
   <script>
     hljs.highlightAll();
   </script>
-  <script async src="js/detail.js"></script>
+  <script async src="../js/detail.js"></script>
   <!--
     extra_javascript contains paths to JavaScript files in the
     users documentation directory or a list of JavaScript files
@@ -300,9 +347,9 @@ networking stack for building mesh networks.</p>
     http://www.mkdocs.org/user-guide/configuration/#extra_javascript
   -->
   
-    <script src="js/hljs-no-guess.js"></script>
+    <script src="../js/hljs-no-guess.js"></script>
   
-    <script src="search/main.js"></script>
+    <script src="../search/main.js"></script>
   
 
 
@@ -324,7 +371,7 @@ networking stack for building mesh networks.</p>
   if (mermaidClass.length > 0) {
 
     var mermaidScript = document.createElement('script');
-    mermaidScript.setAttribute("src", "js/mermaid.min.js");
+    mermaidScript.setAttribute("src", "../js/mermaid.min.js");
     mermaidScript.setAttribute("async", "false");
     mermaidScript.setAttribute("type", "text/javascript");
     mermaidScript.onload = initMermaid;

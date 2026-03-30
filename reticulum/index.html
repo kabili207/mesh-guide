@@ -171,6 +171,28 @@
 -->
 
 <li>
+  <a href="../companion-software/" class="side-bar__link ">
+    Companion Software
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../interface-modes/" class="side-bar__link ">
+    Interface Modes
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
   <a href="../lora-comparison/" class="side-bar__link ">
     LoRa Settings Comparison
   </a>
@@ -235,7 +257,7 @@
 to a morse code link. The network picks the best available path to a node, not just the one
 with the fewest hops.</p>
 <h2 id="installing">Installing</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx
+<div class="language-sh highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx
 
 pipx<span class="w"> </span>ensurepath
 pipx<span class="w"> </span>install<span class="w"> </span>rns
@@ -245,7 +267,7 @@ pipx<span class="w"> </span>inject<span class="w"> </span>rns<span class="w"> </
 than giving it its own. This is required so that NomadNet can access the Reticulum libraries.</p>
 <h2 id="configuring">Configuring</h2>
 <p>Run the <code>rnsd</code> command once and wait for it to say it's started, then hit <code>Ctrl+C</code></p>
-<div class="highlight"><pre><span></span><code>user@laptop:~$ rnsd
+<div class="language-text highlight"><pre><span></span><code>user@laptop:~$ rnsd
 [2026-03-17 14:48:00] [Notice]   Could not load config file, creating default configuration file...
 [2026-03-17 14:48:00] [Notice]   Default config file created. Make any necessary changes in /home/user/.reticulum/config and restart Reticulum if needed.
 [2026-03-17 14:48:03] [Notice]   Started rnsd version 1.1.4
@@ -270,14 +292,14 @@ desire to talk to.</p>
 <h3 id="the-default-auto-interface">The Default Auto Interface</h3>
 <p>This automatically finds and connects to other Reticulum nodes on your local Wifi/Ethernet.</p>
 <p>If you are aiming for a more privacy oriented setup, you will want to set <code>enabled = No</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">[[Default Interface]]</span>
+<div class="language-ini highlight"><pre><span></span><code><span class="w">  </span><span class="k">[[Default Interface]]</span>
 <span class="w">    </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">AutoInterface</span>
 <span class="w">    </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">No</span>
 </code></pre></div>
 <h3 id="tcpbackbone">TCP/Backbone</h3>
 <p>The most common interfaces. These just work over the regular internet.</p>
 <p>If you care about privacy, these gateways can see your public IP address.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[[RMAP]]</span>
+<div class="language-ini highlight"><pre><span></span><code><span class="k">[[RMAP]]</span>
 <span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">TCPClientInterface</span>
 <span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 <span class="w">  </span><span class="na">target_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rmap.world</span>
@@ -316,7 +338,7 @@ segments. Use whichever type the gateway operator specifies.</p>
 into the specifics here.</p>
 <p>Unfortunately bad actors have abused it for controlling their botnets, so the network can be unstable
 at times. I would recommend configuring several I2P interfaces instead of relying on a single one.</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apt-transport-https
+<div class="language-sh highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apt-transport-https
 wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://repo.i2pd.xyz/.help/add_repo<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash<span class="w"> </span>-s<span class="w"> </span>-
 sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>i2pd
@@ -325,7 +347,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 download the script with <code>wget -O add_repo.sh https://repo.i2pd.xyz/.help/add_repo</code>, inspect it,
 then run <code>sudo bash add_repo.sh</code>.</p>
 <p>After that, the i2pd service should automatically start. Then you can add I2P gateways to your list.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[[SparkN0de I2P]]</span>
+<div class="language-ini highlight"><pre><span></span><code><span class="k">[[SparkN0de I2P]]</span>
 <span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">I2PInterface</span>
 <span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 <span class="w">  </span><span class="na">peers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ccrlk4gdxkgrqr633b4msujteaf7gnqw5akxjiek5dhoosfmrdka.b32.i2p</span>
@@ -353,11 +375,11 @@ if you see them often enough for a certain gateway you can either remove it from
 <p>You can view the status of your connection to the network using the command <code>rnstatus</code></p>
 <h2 id="starting-at-boot">Starting at boot</h2>
 <p>If you want reticulum to automatically start when you log in, you can create systemd user service.</p>
-<p><div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user
+<p><div class="language-sh highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user
 </code></pre></div>
 Once the destination folder has been created, save the following to the file
 <code>~/.config/systemd/user/rnsd.service</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
+<div class="language-ini highlight"><pre><span></span><code><span class="k">[Unit]</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">Reticulum Network Stack Daemon</span>
 <span class="na">After</span><span class="o">=</span><span class="s">network-online.target</span>
 <span class="na">Wants</span><span class="o">=</span><span class="s">network-online.target</span>
@@ -374,7 +396,7 @@ Once the destination folder has been created, save the following to the file
 <p>The <code>ExecStart</code> path assumes <code>rnsd</code> was installed via <code>pipx</code> into <code>~/.local/bin/</code>. If you
 installed it differently, run <code>which rnsd</code> and update the <code>ExecStart</code> path accordingly.</p>
 <p>Now run the following commands to ensure it's enabled</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
+<div class="language-sh highlight"><pre><span></span><code>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
 systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>rnsd
 </code></pre></div>
 <p>Running the command <code>rnstatus</code> should show the list of active interfaces.</p>
@@ -424,7 +446,7 @@ friendlier options like MeshChat and Columba. Guides for those will be covered s
 
   <!--
   MkDocs version      : 1.6.1
-  Docs Build Date UTC : 2026-03-30 06:11:58.396307+00:00
+  Docs Build Date UTC : 2026-03-30 17:35:39.696880+00:00
   -->
 
   <!--
@@ -448,6 +470,8 @@ friendlier options like MeshChat and Columba. Guides for those will be covered s
 
     http://www.mkdocs.org/user-guide/configuration/#extra_javascript
   -->
+  
+    <script src="../js/hljs-no-guess.js"></script>
   
     <script src="../search/main.js"></script>
   
