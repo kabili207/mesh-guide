@@ -54,7 +54,91 @@ For a full and up-to-date list, see the
 
 ## Flashing Firmware
 
-TODO
+First, plug in your device and then look for the correct tty device by running `ls /dev/tty*`.
+It will usually be named something starting with `ttyUSB`, `ttyACM`, or `ttyAMA`. If multiple show up,
+disconnect the node, re-run the ls command to see what disappeared, plug it back in, and finally run the
+ls command once more to verify it.
+
+Once you've figured out what tty it's using, run the command below with the correct path. This example
+will be using `/dev/ttyUSB0`
+
+```sh
+rnodeconf --autoinstall /dev/ttyUSB0
+```
+
+You should see a bunch of text followed by a prompt asking you to select your device. Type the number
+beside your device and then hit `Enter`.
+
+If instead of the prompt you see a permission denied error, you likely need to add your user to the dialout
+group. Do so by typing the following command, substituting your username, and then log out of the computer
+and back in again for the change to take effect. Then re-run the rnodeconf command again.
+
+```sh
+sudo usermod -aG dialout your_user_name
+```
+
+If you are using a Heltec device, you will likely encounter the warning below. Just hit `Enter` to continue.
+
+```text
+---------------------------------------------------------------------------
+                     Heltec LoRa32 v3.0 RNode Installer
+
+Important! Using RNode firmware on Heltec devices should currently be
+considered experimental. It is not intended for production or critical use.
+
+The currently supplied firmware is provided AS-IS as a courtesy to those
+who would like to experiment with it. Hit enter to continue.
+---------------------------------------------------------------------------
+```
+
+You will now be asked to select the frequency band. This will depend on the country you live in.
+For North America you'll want 915. Europe and India use 868. Australia, New Zealand, southeast Asia, and parts of South America use 923.
+
+Some parts of Europe also support the 433 band, **but this requires different hardware**.
+
+China uses different frequencies entirely and requires special hardware.
+
+```text
+What band is this Heltec LoRa32 V3 for?
+
+[1] 433 MHz
+[2] 868 MHz
+[3] 915 MHz
+[4] 923 MHz
+
+```
+
+Once you pick the band you will be presented with a final confirmation screen. Type `Y` and then `Enter` to continue.
+
+If you see a warning about failing to get the version information from the default server, just hit `Enter` and
+it will download from an alternate instead.
+
+```text
+[11:42:11] WARNING!
+[11:42:11] Failed to retrieve latest version information for your board from the default server.
+[11:42:11] Will retry using the following fallback URL: https://github.com/markqvist/rnode_firmware/releases/latest/download/release.json
+[11:42:11] 
+[11:42:11] Hit enter if you want to proceed
+```
+
+### Preserving screen life
+
+Some versions of the firmware don't turn off or dim the screen when idle, which can cause burn-in.
+The screen only shows the firmware version, BLE status, and airtime usage, so it's not worth
+leaving on all the time and permanently damaging the display. You can dim the screen and set the
+timeout to 10 seconds with the following command
+
+```text
+user@laptop:~$ rnodeconf -D 30 -t 10 /dev/ttyUSB0 
+[11:44:29] Opening serial port /dev/ttyUSB0...
+[11:44:32] Device connected
+[11:44:32] Current firmware version: 1.85
+[11:44:32] Reading EEPROM...
+[11:44:33] EEPROM checksum correct
+[11:44:33] Device signature validated
+[11:44:33] Setting display intensity to 30
+[11:44:33] Setting display timeout to 10
+```
 
 ## Configuring
 
@@ -69,7 +153,7 @@ The parameters you'll need to set:
 | `bandwidth` | Channel bandwidth in Hz | common values: 62500, 125000, 250000, 500000 |
 | `txpower` | Transmit power in dBm | limited by hardware and local regulations |
 | `spreadingfactor` | LoRa spreading factor (7–12) | higher means longer range but slower speed |
-| `codingrate` | Forward error correction rate (5–8) | higher means more error resilience |
+| `codingrate` | Forward error correction rate (5–8) | higher means more error resilience. sometimes written as 4/<value> |
 
 `frequency`, `bandwidth`, and `spreadingfactor` must be identical on all nodes that need to
 communicate. `txpower` and `codingrate` can differ between nodes.
@@ -84,6 +168,8 @@ As a rough guide:
 
 Your frequency and power settings depend on your country's radio regulations. Here are common
 configurations for each major region. The [Popular RNode Settings](https://github.com/markqvist/Reticulum/wiki/Popular-RNode-Settings) wiki has more community-maintained configs.
+
+If you still aren't sure, look for nodes nearby by visiting the Reticulum World Map. At the time of writing, they are currently beta testing a new method of mapping nodes, so you should check both the [version 3](https://rmap.world/v3/) and [beta version 4](https://rmap.world/) maps.
 
 === "North America"
 
