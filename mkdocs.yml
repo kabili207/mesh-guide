@@ -23,5 +23,6 @@ nav:
   - Home: index.md
   - Reticulum: reticulum.md
   - RNode Setup: rnode.md
+  - Companion Software: companion-software.md
   - LoRa Settings Comparison: lora-comparison.md
 
