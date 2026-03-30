@@ -15,6 +15,8 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       pygments_lang_class: true
+  - def_list
+  - admonition
   - pymdownx.superfences
   - pymdownx.keys
   - pymdownx.tabbed
@@ -24,5 +26,6 @@ nav:
   - Reticulum: reticulum.md
   - RNode Setup: rnode.md
   - Companion Software: companion-software.md
+  - Interface Modes: interface-modes.md
   - LoRa Settings Comparison: lora-comparison.md
 
