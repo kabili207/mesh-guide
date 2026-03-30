@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>RNode Setup - Mesh Guide</title>
+
+  <!-- Page description -->
+  
+
+  <!-- Redirect -->
+  
+
+  <!-- Page author -->
+  
+  <!--
+    Just add a favicon.ico image to the docs.
+  -->
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  <link rel="stylesheet" href="../css/colors.css">
+  <link rel="stylesheet" href="../css/bundle.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link media="print" onload="this.media='all'" rel="stylesheet" href="../css/atom-dark-one.min.css">
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  
+    <link href="../css/custom.css" rel="stylesheet">
+  
+
+  
+  
+
+  <!--
+    Include Google Analytics tracking code.
+
+    http://www.mkdocs.org/user-guide/configuration/#google_analytics
+  -->
+  
+
+</head>
+
+<body>
+<input id="dark-mode" type="checkbox" />
+<!--
+  The JS has to be loaded here for maximum performance, right after the #dark-mode
+-->
+<script src="../js/theme.js"></script>
+<div class="app-body">
+  <!-- KPN STYLE Beginning -->
+  <div class="app-layout ">
+    <!-- Top Bar -->
+    <nav class="app-layout__top-bar top-bar">
+      <a class="top-bar__logo">
+        <img alt="KPN Logo" src="../img/logo-kpn.svg" />
+      </a>
+      <div class="top-bar__title">Mesh Guide</div>
+      <ul class="top-bar__menu">
+        <!--
+          Create a search form that sends the user to the search.html file - this is
+          the other file in the template which adds search to the theme. The only
+          requirement here is that there is a text input with the name 'q' and the
+          action and methods match below.
+        -->
+          <li class="top-bar__item">
+
+            <span role="search" id="search-input-wrapper">
+              <form action="../search.html" method="get">
+                <input type="text" class="input" id="search-input" name="q" placeholder="Search..." />
+              </form>
+            </span >
+          </li>
+        <!--
+          Versioning support
+        -->
+        
+        <!--
+          Support repo URL
+        -->
+        <li class="top-bar__item">
+          
+        </li>
+
+        <li class="top-bar__item">
+            <label class="top-bar__link" id="label-dark-mode" for="dark-mode" title="Dark mode">
+              <svg alt="dark mode" width="24" height="24">
+                <image xlink:href="../img/ui-bulb.svg" width="24" height="24"/>
+            </svg>
+            </label>
+        </li>
+        <li class="top-bar__item top-bar__item--trigger"></li>
+
+        <!-- <li class="top-bar__item">
+
+          <a class="top-bar__link top-bar__link--active">Home</a>
+        </li>
+        <li class="top-bar__item"><a class="top-bar__link">Information</a></li>
+        <li class="top-bar__item">
+          <a class="top-bar__link top-bar__link--collapsed">Getting Started</a>
+
+        </li>
+        <li class="top-bar__item top-bar__item--trigger">Menu</li> -->
+      </ul>
+    </nav>
+
+    <!--
+      Create the navigation for the documentation.
+
+      Because we don't know how many levels deep the navigation is, it needs to
+      be included in it's own file so it can be recursive. Otherwise the theme
+      can also only support a specific number of levels.
+
+      See the nav.html file for more details about how this works.
+    -->
+    <nav class="app-layout__side-bar side-bar">
+      <div class="side-bar__action-bar">
+        <a class="side-bar__link" href="/">Mesh Guide</a>
+        <!--
+          Versioning support
+        -->
+        
+        <button class="side-bar__close"></button>
+      </div>
+      <ul class="side-bar__menu">
+        
+          <!--
+
+-->
+
+<li>
+  <a href=".." class="side-bar__link ">
+    Home
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../reticulum/" class="side-bar__link ">
+    Reticulum
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="./" class="side-bar__link side-bar__link--active">
+    RNode Setup
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../lora-comparison/" class="side-bar__link ">
+    LoRa Settings Comparison
+  </a>
+</li>
+
+        
+      </ul>
+    </nav>
+
+    <!-- MAIN BLOCK -->
+    <main class="app-layout__main main">
+      <div class="app-layout__title-bar title-bar">
+        <div class="title-bar__title">RNode Setup</div>
+      </div>
+      
+      <div class="sidebar--secondary hidden-s hidden-xs">
+        <h4>Table of contents</h4>
+        <ul>
+        
+          
+            
+                <li><a class="a" href="#prerequisites">Prerequisites</a></li>
+                
+            
+                <li><a class="a" href="#hardware">Hardware</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#sx1276-sx1278-boards">SX1276 / SX1278 Boards</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#sx1262-sx1268-boards">SX1262 / SX1268 Boards</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#sx1280-boards-24-ghz">SX1280 Boards (2.4 GHz)</a></li>
+                
+            
+                <li><a class="a" href="#flashing-firmware">Flashing Firmware</a></li>
+                
+            
+                <li><a class="a" href="#configuring">Configuring</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#regional-configurations">Regional Configurations</a></li>
+                
+            
+          
+        
+        </ul>
+      </div>
+      
+      <div class="container content-block">
+        <div class="kpn-style">
+          <div class="card">
+            <div class="card__body">
+
+              
+              <h1 id="setting-up-an-rnode">Setting up an RNode</h1>
+<p>RNodes are radio-based hardware that let Reticulum communicate over LoRa without the internet.
+This is the off-grid part of mesh networking.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before setting up an RNode, make sure you have <a href="../reticulum/">Reticulum installed and configured</a>.</p>
+<h2 id="hardware">Hardware</h2>
+<p>RNode firmware supports boards with Semtech SX1276, SX1278, SX1262, SX1268, or SX1280 LoRa
+chips. The chipset determines your max transmit power and which frequency bands you can use:</p>
+<table>
+<thead>
+<tr>
+<th>Chipset</th>
+<th>Max TX Power</th>
+<th>Typical Bands</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SX1276 / SX1278</td>
+<td>17 dBm</td>
+<td>868 MHz, 915 MHz</td>
+<td>Older, widely available</td>
+</tr>
+<tr>
+<td>SX1262 / SX1268</td>
+<td>22 dBm</td>
+<td>868 MHz, 915 MHz</td>
+<td>Newer, higher power and better sensitivity</td>
+</tr>
+<tr>
+<td>SX1280</td>
+<td>12 dBm</td>
+<td>2.4 GHz</td>
+<td>Much faster, but shorter range</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some commonly used boards grouped by chipset. Many come in multiple variants, so
+check the product listing to confirm which chip and frequency band yours uses.</p>
+<h3 id="sx1276-sx1278-boards">SX1276 / SX1278 Boards</h3>
+<p>The most common and affordable options. Fine for most setups, but capped at 17 dBm transmit
+power.</p>
+<ul>
+<li><strong>LilyGO T-Beam v1.1</strong>: includes GPS and an 18650 battery holder</li>
+<li><strong>LilyGO LoRa32 v1.0 / v2.0 / v2.1</strong>: compact, with a built-in OLED display</li>
+<li><strong>Heltec LoRa32 v2</strong>: similar to the LilyGO LoRa32, also has an OLED</li>
+</ul>
+<h3 id="sx1262-sx1268-boards">SX1262 / SX1268 Boards</h3>
+<p>Higher transmit power (up to 22 dBm) and generally better receive sensitivity. Worth it if
+you need extra range or your mesh uses higher TX power settings.</p>
+<ul>
+<li><strong>LilyGO T-Beam v1.1 (SX1262 variant)</strong>: same form factor as the SX1276 version</li>
+<li><strong>LilyGO T-Beam Supreme</strong>: upgraded T-Beam</li>
+<li><strong>LilyGO T3S3 (SX1262 variant)</strong>: ESP32-S3 based</li>
+<li><strong>Heltec LoRa32 v3 / v4</strong>: newer Heltec boards</li>
+<li><strong>RAK4631</strong>: nRF52840 based, low power draw</li>
+<li><strong>Heltec T114</strong>: compact nRF52840 board</li>
+</ul>
+<h3 id="sx1280-boards-24-ghz">SX1280 Boards (2.4 GHz)</h3>
+<p>Operates on 2.4 GHz instead of sub-GHz. Much faster, but the range drops off
+significantly. Best for high-bandwidth links between nearby nodes.</p>
+<ul>
+<li><strong>LilyGO T3S3 (SX1280 variant)</strong></li>
+</ul>
+<p>For a full and up-to-date list, see the
+<a href="https://github.com/markqvist/RNode_Firmware">RNode Firmware repository</a>.</p>
+<h2 id="flashing-firmware">Flashing Firmware</h2>
+<p>TODO</p>
+<h2 id="configuring">Configuring</h2>
+<p>Once your RNode is flashed and connected, add it as an interface in your Reticulum config
+at <code>~/.reticulum/config</code>.</p>
+<p>The parameters you'll need to set:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frequency</code></td>
+<td>Carrier frequency in Hz</td>
+<td>must comply with your local ISM band</td>
+</tr>
+<tr>
+<td><code>bandwidth</code></td>
+<td>Channel bandwidth in Hz</td>
+<td>common values: 62500, 125000, 250000, 500000</td>
+</tr>
+<tr>
+<td><code>txpower</code></td>
+<td>Transmit power in dBm</td>
+<td>limited by hardware and local regulations</td>
+</tr>
+<tr>
+<td><code>spreadingfactor</code></td>
+<td>LoRa spreading factor (7–12)</td>
+<td>higher means longer range but slower speed</td>
+</tr>
+<tr>
+<td><code>codingrate</code></td>
+<td>Forward error correction rate (5–8)</td>
+<td>higher means more error resilience</td>
+</tr>
+</tbody>
+</table>
+<p><code>frequency</code>, <code>bandwidth</code>, and <code>spreadingfactor</code> must be identical on all nodes that need to
+communicate. <code>txpower</code> and <code>codingrate</code> can differ between nodes.</p>
+<p>As a rough guide:</p>
+<ul>
+<li><strong>Short range, fast:</strong> sf=7, bw=250000 or 500000</li>
+<li><strong>Balanced (most common):</strong> sf=8, bw=125000</li>
+<li><strong>Long range, slow:</strong> sf=9–12, bw=62500–125000</li>
+</ul>
+<h3 id="regional-configurations">Regional Configurations</h3>
+<p>Your frequency and power settings depend on your country's radio regulations. Here are common
+configurations for each major region. The <a href="https://github.com/markqvist/Reticulum/wiki/Popular-RNode-Settings">Popular RNode Settings</a> wiki has more community-maintained configs.</p>
+<div class="tabbed-set" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">North America</label><div class="tabbed-content">
+<p>Applies to the United States, Canada, Mexico, and most of Central America and the Caribbean.</p>
+<p>Max legal power is 30 dBm EIRP. No duty cycle limits, but FCC Part 15 rules apply.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">914875000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">125000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">17</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">8</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Europe</label><div class="tabbed-content">
+<p>Applies to EU countries, UK, Switzerland, Norway, Iceland, Turkey, and much of Africa.</p>
+<p>Max legal power is 16 dBm EIRP. Europe also enforces a 1% duty cycle, so keep this in mind
+for high-traffic links.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">867200000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">125000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">7</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">8</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Australia / New Zealand</label><div class="tabbed-content">
+<p>Also used in Argentina, Brazil, Chile, Ecuador, Paraguay, and Peru.</p>
+<p>Max legal power is 30 dBm EIRP.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">925875000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">250000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">17</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">9</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">India</label><div class="tabbed-content">
+<p>Max legal power is 30 dBm EIRP. 1% duty cycle applies.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">865200000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">125000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">17</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">8</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><label for="__tabbed_1_5">China</label><div class="tabbed-content">
+<p>Max legal power is 19 dBm.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">470300000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">125000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">17</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">9</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><label for="__tabbed_1_6">Japan</label><div class="tabbed-content">
+<p>Max legal power is 13 dBm.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">923200000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">125000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">13</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">8</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><label for="__tabbed_1_7">Southeast Asia</label><div class="tabbed-content">
+<p>Applies to Malaysia, Singapore, Thailand, Vietnam, Indonesia, Cambodia, Hong Kong, and Taiwan.</p>
+<p>Max legal power is typically 16 dBm.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RNode LoRa Interface]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">RNodeInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/dev/ttyUSB0</span>
+<span class="w">  </span><span class="na">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">920500000</span>
+<span class="w">  </span><span class="na">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">125000</span>
+<span class="w">  </span><span class="na">txpower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">16</span>
+<span class="w">  </span><span class="na">spreadingfactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">8</span>
+<span class="w">  </span><span class="na">codingrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+</div>
+</div>
+<p>Always verify the regulations for your specific country before transmitting. The <code>txpower</code>
+value is also limited by your hardware. SX1276/SX1278 boards max out at 17 dBm, while
+SX1262/SX1268 boards can go up to 22 dBm.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__body">
+        
+        <div class="row">
+          <div class="col col--s-4 col--m-3 col--l-2">
+          </div>
+          <div class="col col--s-4 col--m space-between">
+            
+              <a class="footer__link padding-top-0 navigation-prev"
+                href="../reticulum/"
+                title="Reticulum">
+                &#8592; Previous Page
+              </a>
+            
+            
+            
+              <a class="footer__link padding-top-0 navigation-next"
+                href="../lora-comparison/"
+                title="LoRa Settings Comparison"/>
+                Next Page &#8594;
+              </a>
+            
+          </div>
+          <div class="col col--s-4 col--m-3 ">
+          </div>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+
+
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2026-03-30 06:11:58.401951+00:00
+  -->
+
+  <!--
+    To include static assets from our theme, just add
+    .. beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/groovy.min.js"></script>
+  <script src="../js/languages/asciidoc.min.js"></script>
+  <script src="../js/languages/nix.min.js"></script>
+
+  <script>
+    hljs.highlightAll();
+  </script>
+  <script async src="../js/detail.js"></script>
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  
+    <script src="../search/main.js"></script>
+  
+
+
+  <script>
+  function getMermaidTheme() {
+    if (document.getElementById("dark-mode").checked) {
+      return 'dark'
+    }
+    return 'forest'
+  }
+
+  function initMermaid() {
+    mermaid.initialize({
+      theme: getMermaidTheme(),
+      logLevel: 1,
+    });
+  }
+  var mermaidClass = document.getElementsByClassName('mermaid');
+  if (mermaidClass.length > 0) {
+
+    var mermaidScript = document.createElement('script');
+    mermaidScript.setAttribute("src", "../js/mermaid.min.js");
+    mermaidScript.setAttribute("async", "false");
+    mermaidScript.setAttribute("type", "text/javascript");
+    mermaidScript.onload = initMermaid;
+    document.body.appendChild(mermaidScript)
+
+  }
+  </script>
+
+</div>
+</body>
+</html>

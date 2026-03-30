@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>LoRa Settings Comparison - Mesh Guide</title>
+
+  <!-- Page description -->
+  
+
+  <!-- Redirect -->
+  
+
+  <!-- Page author -->
+  
+  <!--
+    Just add a favicon.ico image to the docs.
+  -->
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  <link rel="stylesheet" href="../css/colors.css">
+  <link rel="stylesheet" href="../css/bundle.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link media="print" onload="this.media='all'" rel="stylesheet" href="../css/atom-dark-one.min.css">
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  
+    <link href="../css/custom.css" rel="stylesheet">
+  
+
+  
+  
+
+  <!--
+    Include Google Analytics tracking code.
+
+    http://www.mkdocs.org/user-guide/configuration/#google_analytics
+  -->
+  
+
+</head>
+
+<body>
+<input id="dark-mode" type="checkbox" />
+<!--
+  The JS has to be loaded here for maximum performance, right after the #dark-mode
+-->
+<script src="../js/theme.js"></script>
+<div class="app-body">
+  <!-- KPN STYLE Beginning -->
+  <div class="app-layout ">
+    <!-- Top Bar -->
+    <nav class="app-layout__top-bar top-bar">
+      <a class="top-bar__logo">
+        <img alt="KPN Logo" src="../img/logo-kpn.svg" />
+      </a>
+      <div class="top-bar__title">Mesh Guide</div>
+      <ul class="top-bar__menu">
+        <!--
+          Create a search form that sends the user to the search.html file - this is
+          the other file in the template which adds search to the theme. The only
+          requirement here is that there is a text input with the name 'q' and the
+          action and methods match below.
+        -->
+          <li class="top-bar__item">
+
+            <span role="search" id="search-input-wrapper">
+              <form action="../search.html" method="get">
+                <input type="text" class="input" id="search-input" name="q" placeholder="Search..." />
+              </form>
+            </span >
+          </li>
+        <!--
+          Versioning support
+        -->
+        
+        <!--
+          Support repo URL
+        -->
+        <li class="top-bar__item">
+          
+        </li>
+
+        <li class="top-bar__item">
+            <label class="top-bar__link" id="label-dark-mode" for="dark-mode" title="Dark mode">
+              <svg alt="dark mode" width="24" height="24">
+                <image xlink:href="../img/ui-bulb.svg" width="24" height="24"/>
+            </svg>
+            </label>
+        </li>
+        <li class="top-bar__item top-bar__item--trigger"></li>
+
+        <!-- <li class="top-bar__item">
+
+          <a class="top-bar__link top-bar__link--active">Home</a>
+        </li>
+        <li class="top-bar__item"><a class="top-bar__link">Information</a></li>
+        <li class="top-bar__item">
+          <a class="top-bar__link top-bar__link--collapsed">Getting Started</a>
+
+        </li>
+        <li class="top-bar__item top-bar__item--trigger">Menu</li> -->
+      </ul>
+    </nav>
+
+    <!--
+      Create the navigation for the documentation.
+
+      Because we don't know how many levels deep the navigation is, it needs to
+      be included in it's own file so it can be recursive. Otherwise the theme
+      can also only support a specific number of levels.
+
+      See the nav.html file for more details about how this works.
+    -->
+    <nav class="app-layout__side-bar side-bar">
+      <div class="side-bar__action-bar">
+        <a class="side-bar__link" href="/">Mesh Guide</a>
+        <!--
+          Versioning support
+        -->
+        
+        <button class="side-bar__close"></button>
+      </div>
+      <ul class="side-bar__menu">
+        
+          <!--
+
+-->
+
+<li>
+  <a href=".." class="side-bar__link ">
+    Home
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../reticulum/" class="side-bar__link ">
+    Reticulum
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../rnode/" class="side-bar__link ">
+    RNode Setup
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="./" class="side-bar__link side-bar__link--active">
+    LoRa Settings Comparison
+  </a>
+</li>
+
+        
+      </ul>
+    </nav>
+
+    <!-- MAIN BLOCK -->
+    <main class="app-layout__main main">
+      <div class="app-layout__title-bar title-bar">
+        <div class="title-bar__title">LoRa Settings Comparison</div>
+      </div>
+      
+      <div class="sidebar--secondary hidden-s hidden-xs">
+        <h4>Table of contents</h4>
+        <ul>
+        
+          
+            
+                <li><a class="a" href="#quick-reference">Quick Reference</a></li>
+                
+            
+                <li><a class="a" href="#meshtastic">Meshtastic</a></li>
+                
+            
+                <li><a class="a" href="#meshcore">MeshCore</a></li>
+                
+            
+                <li><a class="a" href="#reticulum">Reticulum</a></li>
+                
+            
+                <li><a class="a" href="#side-by-side">Side by Side</a></li>
+                
+            
+                <li><a class="a" href="#notes">Notes</a></li>
+                
+            
+          
+        
+        </ul>
+      </div>
+      
+      <div class="container content-block">
+        <div class="kpn-style">
+          <div class="card">
+            <div class="card__body">
+
+              
+              <h1 id="lora-settings-comparison">LoRa Settings Comparison</h1>
+<p>If you're coming to Reticulum from Meshtastic or MeshCore, this page compares the LoRa radio
+settings across all three to show how they differ.</p>
+<p>All three use LoRa modulation with the same core parameters (spreading factor, bandwidth, and
+coding rate) but they pick different defaults. Nodes on different platforms can't talk to each
+other even if the radio parameters happen to match, since the protocols on top of LoRa are
+different.</p>
+<h2 id="quick-reference">Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Effect of increasing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spreading Factor (SF)</td>
+<td>Longer range, slower speed</td>
+</tr>
+<tr>
+<td>Bandwidth (BW)</td>
+<td>Faster speed, shorter range, more noise susceptibility</td>
+</tr>
+<tr>
+<td>Coding Rate (CR)</td>
+<td>More error resilience, slightly slower speed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="meshtastic">Meshtastic</h2>
+<p>Meshtastic uses named modem presets. The default is <strong>Long Fast</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>SF</th>
+<th>CR</th>
+<th>BW (kHz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short Turbo</td>
+<td>7</td>
+<td>4/5</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Short Fast</td>
+<td>7</td>
+<td>4/5</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Short Slow</td>
+<td>8</td>
+<td>4/5</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Medium Fast</td>
+<td>9</td>
+<td>4/5</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Medium Slow</td>
+<td>10</td>
+<td>4/5</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Long Turbo</td>
+<td>11</td>
+<td>4/8</td>
+<td>500</td>
+</tr>
+<tr>
+<td><strong>Long Fast</strong> (default)</td>
+<td><strong>11</strong></td>
+<td><strong>4/5</strong></td>
+<td><strong>250</strong></td>
+</tr>
+<tr>
+<td>Long Moderate</td>
+<td>11</td>
+<td>4/8</td>
+<td>125</td>
+</tr>
+<tr>
+<td>Long Slow</td>
+<td>12</td>
+<td>4/8</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+<p>Meshtastic also has 2.4 GHz (wide LoRa) variants of each preset with proportionally wider
+bandwidths, for use with SX1280 hardware.</p>
+<p>Meshtastic leans toward high spreading factors. The default Long Fast at SF11/BW250 prioritizes
+range over throughput, and most meshes standardize on one preset across all nodes.</p>
+<h2 id="meshcore">MeshCore</h2>
+<p>MeshCore doesn't have named presets. You set the raw radio parameters directly. The community
+maintains suggested regional configurations via the
+<a href="https://api.meshcore.nz/api/v1/config">MeshCore config API</a>. The platform is currently
+trending toward narrower bandwidth (BW 62.5 kHz) with lower spreading factors.</p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Freq (MHz)</th>
+<th>SF</th>
+<th>CR</th>
+<th>BW (kHz)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USA/Canada</td>
+<td>910.525</td>
+<td>7</td>
+<td>4/5</td>
+<td>62.5</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>EU/UK (Narrow)</td>
+<td>869.618</td>
+<td>8</td>
+<td>4/8</td>
+<td>62.5</td>
+<td>Current recommendation</td>
+</tr>
+<tr>
+<td>EU/UK (Deprecated)</td>
+<td>869.525</td>
+<td>11</td>
+<td>4/5</td>
+<td>250</td>
+<td>Being phased out</td>
+</tr>
+<tr>
+<td>Switzerland</td>
+<td>869.618</td>
+<td>8</td>
+<td>4/8</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Czech Republic</td>
+<td>869.432</td>
+<td>7</td>
+<td>4/5</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Portugal 868</td>
+<td>869.618</td>
+<td>7</td>
+<td>4/6</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Portugal 433</td>
+<td>433.375</td>
+<td>9</td>
+<td>4/6</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>EU 433 MHz</td>
+<td>433.650</td>
+<td>11</td>
+<td>4/5</td>
+<td>250</td>
+<td>Long range</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>915.800</td>
+<td>10</td>
+<td>4/5</td>
+<td>250</td>
+<td></td>
+</tr>
+<tr>
+<td>Australia (Narrow)</td>
+<td>916.575</td>
+<td>7</td>
+<td>4/8</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Australia: SA, WA</td>
+<td>923.125</td>
+<td>8</td>
+<td>4/8</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Australia: QLD</td>
+<td>923.125</td>
+<td>8</td>
+<td>4/5</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>New Zealand</td>
+<td>917.375</td>
+<td>11</td>
+<td>4/5</td>
+<td>250</td>
+<td></td>
+</tr>
+<tr>
+<td>New Zealand (Narrow)</td>
+<td>917.375</td>
+<td>7</td>
+<td>4/5</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Vietnam (Narrow)</td>
+<td>920.250</td>
+<td>8</td>
+<td>4/5</td>
+<td>62.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Vietnam (Deprecated)</td>
+<td>920.250</td>
+<td>11</td>
+<td>4/5</td>
+<td>250</td>
+<td>Being phased out</td>
+</tr>
+</tbody>
+</table>
+<p>MeshCore is moving away from wide/high-SF settings toward narrow bandwidth (62.5 kHz) with
+lower spreading factors (SF 7-8). This trades some raw range for a better noise floor,
+improved SNR, and faster transmissions.</p>
+<h2 id="reticulum">Reticulum</h2>
+<p>Reticulum doesn't have presets. You configure each parameter individually in your
+<code>~/.reticulum/config</code> file. There's no single "default" since the values depend on your
+region and local mesh. See the <a href="../rnode/">RNode page</a> for full regional configurations.</p>
+<p>Common community settings from the
+<a href="https://github.com/markqvist/Reticulum/wiki/Popular-RNode-Settings">Popular RNode Settings</a> wiki:</p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Freq (MHz)</th>
+<th>SF</th>
+<th>CR</th>
+<th>BW (kHz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USA</td>
+<td>914.875</td>
+<td>8</td>
+<td>4/5</td>
+<td>125</td>
+</tr>
+<tr>
+<td>EU (common)</td>
+<td>867.200</td>
+<td>8</td>
+<td>4/5</td>
+<td>125</td>
+</tr>
+<tr>
+<td>UK</td>
+<td>867.500</td>
+<td>9</td>
+<td>4/5</td>
+<td>125</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>925.875</td>
+<td>9</td>
+<td>4/5</td>
+<td>250</td>
+</tr>
+<tr>
+<td>SE Asia</td>
+<td>920.500</td>
+<td>8</td>
+<td>4/5</td>
+<td>125</td>
+</tr>
+</tbody>
+</table>
+<p>Reticulum communities tend to land in the middle, around SF 8-9 with BW 125 kHz. Individual meshes
+will deviate based on terrain and what works for them.</p>
+<h2 id="side-by-side">Side by Side</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Meshtastic</th>
+<th>MeshCore</th>
+<th>Reticulum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Typical SF</strong></td>
+<td>11 (default)</td>
+<td>7–8 (trending)</td>
+<td>8–9</td>
+</tr>
+<tr>
+<td><strong>Typical BW</strong></td>
+<td>250 kHz</td>
+<td>62.5 kHz (trending)</td>
+<td>125 kHz</td>
+</tr>
+<tr>
+<td><strong>Typical CR</strong></td>
+<td>4/5</td>
+<td>4/5 to 4/8</td>
+<td>4/5</td>
+</tr>
+<tr>
+<td><strong>Configuration</strong></td>
+<td>Named presets</td>
+<td>Raw parameters</td>
+<td>Raw parameters</td>
+</tr>
+<tr>
+<td><strong>Philosophy</strong></td>
+<td>Range first</td>
+<td>Speed/efficiency first</td>
+<td>Balanced</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>No cross-platform communication.</strong> Even with identical radio settings, Meshtastic, MeshCore,
+  and Reticulum use different protocols and won't talk to each other.</li>
+<li><strong>Bandwidth affects duty cycle.</strong> In regions with duty cycle limits (like Europe), narrower
+  bandwidth means each transmission takes longer, eating into your allowed airtime faster
+  despite the lower data rate.</li>
+<li><strong>Match your local mesh.</strong> Whatever platform you're on, the most important thing is using the
+  same settings as the people you want to talk to. Check with your local community.</li>
+</ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__body">
+        
+        <div class="row">
+          <div class="col col--s-4 col--m-3 col--l-2">
+          </div>
+          <div class="col col--s-4 col--m space-between">
+            
+              <a class="footer__link padding-top-0 navigation-prev"
+                href="../rnode/"
+                title="RNode Setup">
+                &#8592; Previous Page
+              </a>
+            
+            
+            
+                Next Page &#8594;
+            
+          </div>
+          <div class="col col--s-4 col--m-3 ">
+          </div>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+
+
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2026-03-30 06:11:58.390553+00:00
+  -->
+
+  <!--
+    To include static assets from our theme, just add
+    .. beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/groovy.min.js"></script>
+  <script src="../js/languages/asciidoc.min.js"></script>
+  <script src="../js/languages/nix.min.js"></script>
+
+  <script>
+    hljs.highlightAll();
+  </script>
+  <script async src="../js/detail.js"></script>
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  
+    <script src="../search/main.js"></script>
+  
+
+
+  <script>
+  function getMermaidTheme() {
+    if (document.getElementById("dark-mode").checked) {
+      return 'dark'
+    }
+    return 'forest'
+  }
+
+  function initMermaid() {
+    mermaid.initialize({
+      theme: getMermaidTheme(),
+      logLevel: 1,
+    });
+  }
+  var mermaidClass = document.getElementsByClassName('mermaid');
+  if (mermaidClass.length > 0) {
+
+    var mermaidScript = document.createElement('script');
+    mermaidScript.setAttribute("src", "../js/mermaid.min.js");
+    mermaidScript.setAttribute("async", "false");
+    mermaidScript.setAttribute("type", "text/javascript");
+    mermaidScript.onload = initMermaid;
+    document.body.appendChild(mermaidScript)
+
+  }
+  </script>
+
+</div>
+</body>
+</html>

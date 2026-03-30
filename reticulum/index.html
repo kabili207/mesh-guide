@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>Reticulum - Mesh Guide</title>
+
+  <!-- Page description -->
+  
+
+  <!-- Redirect -->
+  
+
+  <!-- Page author -->
+  
+  <!--
+    Just add a favicon.ico image to the docs.
+  -->
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  <link rel="stylesheet" href="../css/colors.css">
+  <link rel="stylesheet" href="../css/bundle.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link media="print" onload="this.media='all'" rel="stylesheet" href="../css/atom-dark-one.min.css">
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  
+    <link href="../css/custom.css" rel="stylesheet">
+  
+
+  
+  
+
+  <!--
+    Include Google Analytics tracking code.
+
+    http://www.mkdocs.org/user-guide/configuration/#google_analytics
+  -->
+  
+
+</head>
+
+<body>
+<input id="dark-mode" type="checkbox" />
+<!--
+  The JS has to be loaded here for maximum performance, right after the #dark-mode
+-->
+<script src="../js/theme.js"></script>
+<div class="app-body">
+  <!-- KPN STYLE Beginning -->
+  <div class="app-layout ">
+    <!-- Top Bar -->
+    <nav class="app-layout__top-bar top-bar">
+      <a class="top-bar__logo">
+        <img alt="KPN Logo" src="../img/logo-kpn.svg" />
+      </a>
+      <div class="top-bar__title">Mesh Guide</div>
+      <ul class="top-bar__menu">
+        <!--
+          Create a search form that sends the user to the search.html file - this is
+          the other file in the template which adds search to the theme. The only
+          requirement here is that there is a text input with the name 'q' and the
+          action and methods match below.
+        -->
+          <li class="top-bar__item">
+
+            <span role="search" id="search-input-wrapper">
+              <form action="../search.html" method="get">
+                <input type="text" class="input" id="search-input" name="q" placeholder="Search..." />
+              </form>
+            </span >
+          </li>
+        <!--
+          Versioning support
+        -->
+        
+        <!--
+          Support repo URL
+        -->
+        <li class="top-bar__item">
+          
+        </li>
+
+        <li class="top-bar__item">
+            <label class="top-bar__link" id="label-dark-mode" for="dark-mode" title="Dark mode">
+              <svg alt="dark mode" width="24" height="24">
+                <image xlink:href="../img/ui-bulb.svg" width="24" height="24"/>
+            </svg>
+            </label>
+        </li>
+        <li class="top-bar__item top-bar__item--trigger"></li>
+
+        <!-- <li class="top-bar__item">
+
+          <a class="top-bar__link top-bar__link--active">Home</a>
+        </li>
+        <li class="top-bar__item"><a class="top-bar__link">Information</a></li>
+        <li class="top-bar__item">
+          <a class="top-bar__link top-bar__link--collapsed">Getting Started</a>
+
+        </li>
+        <li class="top-bar__item top-bar__item--trigger">Menu</li> -->
+      </ul>
+    </nav>
+
+    <!--
+      Create the navigation for the documentation.
+
+      Because we don't know how many levels deep the navigation is, it needs to
+      be included in it's own file so it can be recursive. Otherwise the theme
+      can also only support a specific number of levels.
+
+      See the nav.html file for more details about how this works.
+    -->
+    <nav class="app-layout__side-bar side-bar">
+      <div class="side-bar__action-bar">
+        <a class="side-bar__link" href="/">Mesh Guide</a>
+        <!--
+          Versioning support
+        -->
+        
+        <button class="side-bar__close"></button>
+      </div>
+      <ul class="side-bar__menu">
+        
+          <!--
+
+-->
+
+<li>
+  <a href=".." class="side-bar__link ">
+    Home
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="./" class="side-bar__link side-bar__link--active">
+    Reticulum
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../rnode/" class="side-bar__link ">
+    RNode Setup
+  </a>
+</li>
+
+        
+          <!--
+
+-->
+
+<li>
+  <a href="../lora-comparison/" class="side-bar__link ">
+    LoRa Settings Comparison
+  </a>
+</li>
+
+        
+      </ul>
+    </nav>
+
+    <!-- MAIN BLOCK -->
+    <main class="app-layout__main main">
+      <div class="app-layout__title-bar title-bar">
+        <div class="title-bar__title">Reticulum</div>
+      </div>
+      
+      <div class="sidebar--secondary hidden-s hidden-xs">
+        <h4>Table of contents</h4>
+        <ul>
+        
+          
+            
+                <li><a class="a" href="#installing">Installing</a></li>
+                
+            
+                <li><a class="a" href="#configuring">Configuring</a></li>
+                
+            
+                <li><a class="a" href="#interfaces">Interfaces</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#the-default-auto-interface">The Default Auto Interface</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#tcpbackbone">TCP/Backbone</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#i2p">I2P</a></li>
+                
+                    <li class="child-li"><a class="a child" href="#yggdrasil">Yggdrasil</a></li>
+                
+            
+                <li><a class="a" href="#starting-reticulum">Starting Reticulum</a></li>
+                
+            
+                <li><a class="a" href="#starting-at-boot">Starting at boot</a></li>
+                
+            
+                <li><a class="a" href="#talking-to-people">Talking to people</a></li>
+                
+            
+          
+        
+        </ul>
+      </div>
+      
+      <div class="container content-block">
+        <div class="kpn-style">
+          <div class="card">
+            <div class="card__body">
+
+              
+              <h1 id="setting-up-reticulum">Setting up Reticulum</h1>
+<p>Unlike Meshtastic or MeshCore, Reticulum is a lot more hands-on. It's designed to run over
+<em>any</em> transport mechanism that can send the necessary packet sizes, from a fiber optic backbone
+to a morse code link. The network picks the best available path to a node, not just the one
+with the fewest hops.</p>
+<h2 id="installing">Installing</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx
+
+pipx<span class="w"> </span>ensurepath
+pipx<span class="w"> </span>install<span class="w"> </span>rns
+pipx<span class="w"> </span>inject<span class="w"> </span>rns<span class="w"> </span>nomadnet<span class="w"> </span>--install-apps
+</code></pre></div>
+<p>Note that <code>pipx inject</code> installs NomadNet into the same virtual environment as <code>rns</code>, rather
+than giving it its own. This is required so that NomadNet can access the Reticulum libraries.</p>
+<h2 id="configuring">Configuring</h2>
+<p>Run the <code>rnsd</code> command once and wait for it to say it's started, then hit <code>Ctrl+C</code></p>
+<div class="highlight"><pre><span></span><code>user@laptop:~$ rnsd
+[2026-03-17 14:48:00] [Notice]   Could not load config file, creating default configuration file...
+[2026-03-17 14:48:00] [Notice]   Default config file created. Make any necessary changes in /home/user/.reticulum/config and restart Reticulum if needed.
+[2026-03-17 14:48:03] [Notice]   Started rnsd version 1.1.4
+^C
+user@laptop:~$ 
+</code></pre></div>
+<p>Open the config file mentioned, which should be the at <code>~/.reticulum/config</code></p>
+<p>The defaults are mostly good, but you'll want to add some gateways to the <code>[interfaces]</code>
+section at the very bottom.</p>
+<h2 id="interfaces">Interfaces</h2>
+<p>Throughout this guide you'll see the terms "interface", "gateway", and "transport" used loosely.
+In Reticulum, an <strong>interface</strong> is the config-level definition of a connection, i.e. what you
+add to your config file. A <strong>gateway</strong> is a remote node that your interface connects to,
+and <strong>transport</strong> refers to the underlying method used to carry traffic (TCP, I2P, etc.).
+In practice they're closely related, so don't worry too much about the distinction.</p>
+<p>Some gateways will inevetiably go down from time to time, so it's wise to choose a good balance
+so you have a few fallbacks.</p>
+<p>There are several public gateways you can use, which you can find an up to date listing at the
+<a href="https://directory.rns.recipes/">RNS Directory</a>. This guide will only show a select few of the
+more stable ones. Ideally you would pick gateways closet to your local mesh and/or people you
+desire to talk to.</p>
+<h3 id="the-default-auto-interface">The Default Auto Interface</h3>
+<p>This automatically finds and connects to other Reticulum nodes on your local Wifi/Ethernet.</p>
+<p>If you are aiming for a more privacy oriented setup, you will want to set <code>enabled = No</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">[[Default Interface]]</span>
+<span class="w">    </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">AutoInterface</span>
+<span class="w">    </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">No</span>
+</code></pre></div>
+<h3 id="tcpbackbone">TCP/Backbone</h3>
+<p>The most common interfaces. These just work over the regular internet.</p>
+<p>If you care about privacy, these gateways can see your public IP address.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[RMAP]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">TCPClientInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">target_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rmap.world</span>
+<span class="w">  </span><span class="na">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4242</span>
+
+<span class="k">[[RNS_Transport_US-East]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">TCPClientInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">target_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">45.77.109.86</span>
+<span class="w">  </span><span class="na">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4965</span>
+
+<span class="k">[[Sydney RNS]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">TCPClientInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">target_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">sydney.reticulum.au</span>
+<span class="w">  </span><span class="na">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4242</span>
+
+<span class="k">[[RNS TCP Node Germany 002]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">TCPClientInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">target_host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">193.26.158.230</span>
+<span class="w">  </span><span class="na">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4965</span>
+
+<span class="k">[[MichMesh]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">BackboneInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">remote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rns.michmesh.net</span>
+<span class="w">  </span><span class="na">target_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">7822</span>
+</code></pre></div>
+<p>Note that MichMesh uses <code>BackboneInterface</code> with <code>remote</code> instead of <code>TCPClientInterface</code> with
+<code>target_host</code>. Backbone interfaces are optimized for stable, high-capacity links between network
+segments. Use whichever type the gateway operator specifies.</p>
+<p>There are plenty more to pick from, but this should get you connected to most RNS users.</p>
+<h3 id="i2p">I2P</h3>
+<p>I2P is similar to Tor but uses a different approach to obfuscating your traffic. I won't go
+into the specifics here.</p>
+<p>Unfortunately bad actors have abused it for controlling their botnets, so the network can be unstable
+at times. I would recommend configuring several I2P interfaces instead of relying on a single one.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apt-transport-https
+wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://repo.i2pd.xyz/.help/add_repo<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash<span class="w"> </span>-s<span class="w"> </span>-
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>i2pd
+</code></pre></div>
+<p>The second command pipes a remote script into <code>sudo bash</code>. If you'd prefer to review it first,
+download the script with <code>wget -O add_repo.sh https://repo.i2pd.xyz/.help/add_repo</code>, inspect it,
+then run <code>sudo bash add_repo.sh</code>.</p>
+<p>After that, the i2pd service should automatically start. Then you can add I2P gateways to your list.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[[SparkN0de I2P]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">I2PInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">peers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ccrlk4gdxkgrqr633b4msujteaf7gnqw5akxjiek5dhoosfmrdka.b32.i2p</span>
+
+<span class="k">[[Casbah I2P Relay]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">I2PInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">peers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">nckymqd5qchedbvjqsrlovgwc5iupasu3jjnt7fwws5vd4l552yq.b32.i2p</span>
+
+<span class="k">[[akku i2p]]</span>
+<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">I2PInterface</span>
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="w">  </span><span class="na">peers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">j4qvsmifjuq2fqn4wj34xu7swgqjyror4hx3qgl3aj3ggxmg6hrq.b32.i2p</span>
+</code></pre></div>
+<h3 id="yggdrasil">Yggdrasil</h3>
+<p>While you might find several Yggdrasil interfaces available, I personally do not recommend using it.
+Yggdrasil creates an IPv6 network interface on your computer, effectively putting you on a global
+LAN with everyone else on the network. Unless you know how to properly configure a firewall, this
+will only expose you to more risk.</p>
+<h2 id="starting-reticulum">Starting Reticulum</h2>
+<p>Once you have all of your interface/gateways set up, you can start it again by running <code>rnsd</code></p>
+<p>Since gateways come and go, you might see errors in the logs. They're usually safe to ignore, but
+if you see them often enough for a certain gateway you can either remove it from the list or set
+<code>enabled = no</code>.</p>
+<p>You can view the status of your connection to the network using the command <code>rnstatus</code></p>
+<h2 id="starting-at-boot">Starting at boot</h2>
+<p>If you want reticulum to automatically start when you log in, you can create systemd user service.</p>
+<p><div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user
+</code></pre></div>
+Once the destination folder has been created, save the following to the file
+<code>~/.config/systemd/user/rnsd.service</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Reticulum Network Stack Daemon</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network-online.target</span>
+<span class="na">Wants</span><span class="o">=</span><span class="s">network-online.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">%h/.local/bin/rnsd</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">5</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
+</code></pre></div>
+<p>The <code>ExecStart</code> path assumes <code>rnsd</code> was installed via <code>pipx</code> into <code>~/.local/bin/</code>. If you
+installed it differently, run <code>which rnsd</code> and update the <code>ExecStart</code> path accordingly.</p>
+<p>Now run the following commands to ensure it's enabled</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
+systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>rnsd
+</code></pre></div>
+<p>Running the command <code>rnstatus</code> should show the list of active interfaces.</p>
+<h2 id="talking-to-people">Talking to people</h2>
+<p>This is why you're here, after all.</p>
+<p>The installation instructions included NomadNet, which works but is terminal-based. There are
+friendlier options like MeshChat and Columba. Guides for those will be covered separately.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__body">
+        
+        <div class="row">
+          <div class="col col--s-4 col--m-3 col--l-2">
+          </div>
+          <div class="col col--s-4 col--m space-between">
+            
+              <a class="footer__link padding-top-0 navigation-prev"
+                href=".."
+                title="Home">
+                &#8592; Previous Page
+              </a>
+            
+            
+            
+              <a class="footer__link padding-top-0 navigation-next"
+                href="../rnode/"
+                title="RNode Setup"/>
+                Next Page &#8594;
+              </a>
+            
+          </div>
+          <div class="col col--s-4 col--m-3 ">
+          </div>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+
+
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2026-03-30 06:11:58.396307+00:00
+  -->
+
+  <!--
+    To include static assets from our theme, just add
+    .. beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/groovy.min.js"></script>
+  <script src="../js/languages/asciidoc.min.js"></script>
+  <script src="../js/languages/nix.min.js"></script>
+
+  <script>
+    hljs.highlightAll();
+  </script>
+  <script async src="../js/detail.js"></script>
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  
+    <script src="../search/main.js"></script>
+  
+
+
+  <script>
+  function getMermaidTheme() {
+    if (document.getElementById("dark-mode").checked) {
+      return 'dark'
+    }
+    return 'forest'
+  }
+
+  function initMermaid() {
+    mermaid.initialize({
+      theme: getMermaidTheme(),
+      logLevel: 1,
+    });
+  }
+  var mermaidClass = document.getElementsByClassName('mermaid');
+  if (mermaidClass.length > 0) {
+
+    var mermaidScript = document.createElement('script');
+    mermaidScript.setAttribute("src", "../js/mermaid.min.js");
+    mermaidScript.setAttribute("async", "false");
+    mermaidScript.setAttribute("type", "text/javascript");
+    mermaidScript.onload = initMermaid;
+    document.body.appendChild(mermaidScript)
+
+  }
+  </script>
+
+</div>
+</body>
+</html>

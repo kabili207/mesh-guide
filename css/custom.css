@@ -1,0 +1,16 @@
+:root {
+  --green-subtle: var(--blue-subtle);
+  --green-light: var(--blue-light);
+  --green-bright: var(--blue);
+  --green: var(--blue);
+  --green-dark: var(--blue-dark);
+  --green-darkest: var(--blue-darkest);
+}
+
+#dark-mode:checked ~ .app-body {
+  --green: var(--blue);
+}
+
+.top-bar .top-bar__logo {
+  display: none;
+}
